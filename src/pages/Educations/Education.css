@@ -1,45 +1,64 @@
 .education {
-  padding: 50px 0px;
-  /* margin: 50px 0px; */
+  padding: 50px 0;
   margin-left: 120px;
-  background-color: rgba(128, 128, 128, 0.101);
+  background-color: transparent;
 }
 
 .education hr {
-  color: #138781;
+  border: 0;
+  height: 0;
   width: 400px;
   margin: 10px auto;
+  opacity: 1;
+  border-top: 3px solid var(--color-accent);
+  background: none;
+  color: transparent;
 }
 
 .education h2 {
-  font-weight: bold;
-  color: #138781;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+#dark .education h2 {
+  color: var(--color-accent);
 }
 
 .education .vertical-timeline-element-title {
-  color: #138781;
+  color: var(--color-accent);
 }
 
 .education .vertical-timeline-element-subtitle {
-  color: #1e1e2c;
+  color: var(--color-muted);
 }
 
-/* ========= DARK MODE ============ */
-
-#dark .education {
-  background-color: rgba(255, 255, 255, 0.095);
+.education .vertical-timeline-element-content {
+  box-shadow: none !important;
 }
 
-/* ========================== */
+.education .vertical-timeline::before {
+  background: var(--color-accent);
+}
+
+#dark .education .vertical-timeline::before {
+  background: var(--color-accent);
+}
+
+#dark .education .vertical-timeline-element-date {
+  color: var(--color-muted);
+}
+
 @media (max-width: 600px) {
   .education {
     margin: 0;
     padding: 0;
     margin-top: 30px;
   }
+
   .education h2 {
     padding-top: 20px;
   }
+
   .education hr {
     width: 280px;
     margin-bottom: 10px;

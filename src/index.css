@@ -1,13 +1,63 @@
 /* css reset */
-*{
-  margin:0;
+* {
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* DARK MODE */
+:root {
+  --color-accent: #138781;
+  --color-coral: #f29f67;
+  --color-gold: #e0b50f;
+  --color-sidebar: #1e1e2c;
+  --color-bg: #f7f8fa;
+  --color-text: #1a1a1a;
+  --color-muted: #5c6570;
+  --color-surface: #ffffff;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --font-display: "Syne", "Trebuchet MS", sans-serif;
+  --font-body: "DM Sans", "Segoe UI", sans-serif;
+}
 
-#dark{
-  background-color: #5f264a;
-  color: #f4eee0;
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+.home-name,
+.about-content h1,
+.experience h1,
+.education h2,
+.techstack h2,
+.project h2,
+.contact-brand h2 {
+  font-family: var(--font-display);
+}
+
+#light {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+#dark {
+  --color-bg: #12141c;
+  --color-text: #e8e6e3;
+  --color-muted: #b0b6c0;
+  --color-surface: #1a1d27;
+  --color-border: rgba(255, 255, 255, 0.08);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.footer {
+  margin-top: 40px;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+#dark .footer {
+  color: var(--color-muted);
 }

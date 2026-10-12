@@ -6,59 +6,41 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import "./Education.css";
+import FadeIn from "../../components/FadeIn/FadeIn";
+import { profile } from "../../data/profile";
+
 const Education = () => {
   return (
-    <>
-      <div className=" education" id="education">
+    <div className="education" id="education">
+      <FadeIn>
         <h2 className="col-12 mt-3 mb-1 text-center text-uppercase">
           Education Details
         </h2>
         <hr />
-        <VerticalTimeline>
+      </FadeIn>
+      <VerticalTimeline>
+        {profile.education.map((item) => (
           <VerticalTimelineElement
+            key={item.id}
             className="vertical-timeline-element--work"
-            contentStyle={{ background: "white", color: "black" }}
-            contentArrowStyle={{ borderRight: "7px solid  white" }}
-            date="2017 - 18"
+            contentStyle={{
+              background: "var(--color-surface)",
+              color: "var(--color-text)",
+              border: "1px solid var(--color-border)",
+            }}
+            contentArrowStyle={{ borderRight: "7px solid var(--color-surface)" }}
+            date={item.date}
             iconStyle={{ background: "#138781", color: "#fff" }}
             icon={<MdSchool />}
           >
-            <h3 className="vertical-timeline-element-title">
-              B.Sc in Computer Science & Engineering(CSE)
-            </h3>
+            <h3 className="vertical-timeline-element-title">{item.degree}</h3>
             <h4 className="vertical-timeline-element-subtitle">
-              Shaikh Burhanuddin Post Graduate College
+              {item.institution}
             </h4>
           </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: "white", color: "black" }}
-            contentArrowStyle={{ borderRight: "7px solid  white" }}
-            date="2015 - 2017"
-            iconStyle={{ background: "#138781", color: "#fff" }}
-            icon={<MdSchool />}
-          >
-            <h3 className="vertical-timeline-element-title">HSC</h3>
-            <h4 className="vertical-timeline-element-subtitle">
-              Hazi Misir Ali University College
-            </h4>
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: "white", color: "black" }}
-            contentArrowStyle={{ borderRight: "7px solid  white" }}
-            date="2013 - 2015"
-            iconStyle={{ background: "#138781", color: "#fff" }}
-            icon={<MdSchool />}
-          >
-            <h3 className="vertical-timeline-element-title">SSC</h3>
-            <h4 className="vertical-timeline-element-subtitle">
-              Hazi Pandey Ali High School
-            </h4>
-          </VerticalTimelineElement>
-        </VerticalTimeline>
-      </div>
-    </>
+        ))}
+      </VerticalTimeline>
+    </div>
   );
 };
 

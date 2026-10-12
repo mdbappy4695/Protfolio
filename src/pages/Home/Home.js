@@ -2,57 +2,82 @@ import React from "react";
 import Typewriter from "typewriter-effect";
 import Resume from "../../assets/docs/md.pdf";
 import "./Home.css";
-import Fade from "react-reveal/Fade";
+import FadeIn from "../../components/FadeIn/FadeIn";
+import MagneticButton from "../../components/MagneticButton/MagneticButton";
 import { useTheme } from "../../context/ThemeContext";
 import { BsFillSunFill, BsMoonStarsFill } from "react-icons/bs";
+import { profile } from "../../data/profile";
+
 const Home = () => {
   const [theme, setTheme] = useTheme();
-  //handle theme
-  const handleTheme = () => {
-    setTheme((preState) => (preState === "light" ? "dark" : "light"));
-  };
-  return (
-    <>
-      <div className="container-fluid home-container" id="home">
-        <div className="theme-btn" onClick={handleTheme}>
-          {theme === "light" ? (
-            <BsMoonStarsFill size={30} />
-          ) : (
-            <BsFillSunFill size={30} />
-          )}
-        </div>
 
-        <div className="container home-content">
-          <Fade right>
-            <h2>Hi 👋 I'm a</h2>
-            <h1>
-              <Typewriter
-                options={{
-                  strings: ["FullStack Developer!", "Dot Net Developer!"],
-                  autoStart: true,
-                  loop: true,
-                }}
-              />
-            </h1>
-          </Fade>
-          <Fade bottom>
-            <div className="home-buttons">
+  const handleTheme = () => {
+    setTheme((prevState) => (prevState === "light" ? "dark" : "light"));
+  };
+
+  return (
+    <div className="container-fluid home-container" id="home">
+      <div className="home-atmosphere" aria-hidden="true">
+        <span className="home-orb home-orb--teal" />
+        <span className="home-orb home-orb--coral" />
+        <span className="home-orb home-orb--gold" />
+      </div>
+
+      <button
+        type="button"
+        className="theme-btn"
+        onClick={handleTheme}
+        aria-label={
+          theme === "light" ? "Switch to dark mode" : "Switch to light mode"
+        }
+      >
+        {theme === "light" ? (
+          <BsMoonStarsFill size={24} />
+        ) : (
+          <BsFillSunFill size={24} />
+        )}
+      </button>
+
+      <div className="container home-content">
+        <FadeIn>
+          <p className="home-greeting">Hi, I&apos;m</p>
+          <h1 className="home-name">{profile.name}</h1>
+          <h2 className="home-roles">
+            <Typewriter
+              options={{
+                strings: profile.roles,
+                autoStart: true,
+                loop: true,
+              }}
+            />
+          </h2>
+          <p className="home-tagline">{profile.tagline}</p>
+        </FadeIn>
+        <FadeIn delay={150}>
+          <div className="home-buttons">
+            <MagneticButton>
               <a
                 className="btn btn-hire"
-                href="https://api.whatsapp.com/send?phone=01969602383"
+                href={`https://api.whatsapp.com/send?phone=${profile.whatsapp}`}
                 rel="noreferrer"
                 target="_blank"
               >
                 Hire Me
               </a>
-              <a className="btn btn-cv" href={Resume} download="md-bappy.pdf">
+            </MagneticButton>
+            <MagneticButton>
+              <a
+                className="btn btn-cv"
+                href={Resume}
+                download={profile.resumeFileName}
+              >
                 My Resume
               </a>
-            </div>
-          </Fade>
-        </div>
+            </MagneticButton>
+          </div>
+        </FadeIn>
       </div>
-    </>
+    </div>
   );
 };
 

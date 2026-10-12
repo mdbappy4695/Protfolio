@@ -1,9 +1,24 @@
-import { useState, createContext, useContext } from "react";
+import { useState, createContext, useContext, useEffect } from "react";
 
 const ThemeContext = createContext();
+const THEME_KEY = "portfolio-theme";
 
-const ThemeProvidoer = ({ children }) => {
-  const [theme, setTheme] = useState("light");
+const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem(THEME_KEY) || "light";
+    } catch {
+      return "light";
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch {
+      // ignore storage errors
+    }
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={[theme, setTheme]}>
@@ -12,7 +27,6 @@ const ThemeProvidoer = ({ children }) => {
   );
 };
 
-//custom hook
 const useTheme = () => useContext(ThemeContext);
 
-export { useTheme, ThemeProvidoer };
+export { useTheme, ThemeProvider };

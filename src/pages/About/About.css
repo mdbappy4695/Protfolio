@@ -1,62 +1,72 @@
 .about {
-    margin: 30px 0px;
-    padding: 20px;
-    margin-left: 130px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  }
-  
-  /* .about-img img {
-    border-radius: 10px;
-    width: 100%;
-    height: 400px;
-  } */
-
-  .about-img img {
-    border-radius: 10px;
-    width: 100%;       /* full width of the container */
-    height: auto;      /* height adjusts automatically */
-    max-width: 100%;   /* ensures image doesn't overflow */
+  margin: 30px 0;
+  padding: 24px;
+  margin-left: 130px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
 }
-  
-  .about-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+.about-img img {
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.about-content h1 {
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+  text-align: left;
+  font-size: 1.75rem;
+  margin-bottom: 8px;
+}
+
+.about-content p {
+  text-align: justify;
+  padding: 12px 0;
+  white-space: pre-line;
+  color: var(--color-text);
+  line-height: 1.65;
+}
+
+.about-soft-skills {
+  margin-top: 4px;
+  padding-top: 0 !important;
+  color: var(--color-muted) !important;
+  font-size: 0.95rem;
+  white-space: normal !important;
+}
+
+.about-soft-skills strong {
+  color: var(--color-accent);
+}
+
+#dark .about {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+#dark .about-content h1 {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+@media (max-width: 600px) {
+  .about {
+    margin: 20px 12px 0;
+    padding: 16px;
+    width: auto;
   }
-  
+
   .about-content h1 {
-    color: gray;
-    font-family: cursive;
-    border-bottom: 2px solid gray;
-    text-align: center;
+    margin-top: 10px;
   }
-  .about-content p {
-    text-align: justify;
-    padding: 20px;
-  }
-  
-  /* ======== DARK MODE ========= */
-  
-  #dark .about {
-    box-shadow: none;
-    background-color: rgba(0, 0, 0, 0.15);
-  }
-  
-  #dark .about-content h1 {
-    color: #b0a4a4;
-    border-bottom: 2px solid #b0a4a4;
-  }
-  
-  /* ================================ */
-  @media (max-width: 600px) {
-    .about {
-      margin: 0;
-      padding: 0;
-      margin-top: 20px;
-      width: 100%;
-    }
-    .about-content h1 {
-      margin-top: 10px;
-    }
-  }
+}

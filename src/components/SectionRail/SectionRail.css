@@ -1,0 +1,42 @@
+.section-rail {
+  position: fixed;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.section-rail__dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent, #138781);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.25s ease, transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.section-rail__dot:hover,
+.section-rail__dot:focus-visible {
+  transform: scale(1.25);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(19, 135, 129, 0.25);
+}
+
+.section-rail__dot--active {
+  background: var(--color-accent, #138781);
+  box-shadow: 0 0 0 4px rgba(19, 135, 129, 0.2);
+}
+
+@media (min-width: 900px) {
+  .section-rail {
+    display: flex;
+  }
+}

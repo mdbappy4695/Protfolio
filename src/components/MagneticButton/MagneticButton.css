@@ -1,0 +1,11 @@
+.magnetic-btn {
+  display: inline-block;
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .magnetic-btn {
+    transition: none;
+  }
+}

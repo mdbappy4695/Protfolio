@@ -1,76 +1,255 @@
 .home-container {
-    height: 300px;
-    color: white;
-    padding-left: 150px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 460px;
+  color: white;
+  padding-left: 220px;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(19, 135, 129, 0.45), transparent 55%),
+    radial-gradient(ellipse at 80% 70%, rgba(242, 159, 103, 0.28), transparent 50%),
+    linear-gradient(135deg, #1e1e2c 0%, #243447 55%, #1a3a38 100%);
+  background-size: 120% 120%;
+  animation: home-gradient-drift 18s ease-in-out infinite alternate;
+  display: flex;
+  align-items: center;
+}
+
+.home-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.home-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.55;
+  animation: home-orb-float 12s ease-in-out infinite;
+}
+
+.home-orb--teal {
+  width: 220px;
+  height: 220px;
+  background: rgba(19, 135, 129, 0.55);
+  top: 8%;
+  right: 12%;
+  animation-delay: 0s;
+}
+
+.home-orb--coral {
+  width: 160px;
+  height: 160px;
+  background: rgba(242, 159, 103, 0.45);
+  bottom: 12%;
+  right: 28%;
+  animation-delay: -4s;
+}
+
+.home-orb--gold {
+  width: 120px;
+  height: 120px;
+  background: rgba(224, 181, 15, 0.35);
+  top: 40%;
+  left: 38%;
+  animation-delay: -7s;
+}
+
+.home-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.home-greeting {
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.home-name {
+  margin: 4px 0 8px;
+  font-family: var(--font-display, Syne, sans-serif);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.1;
+  animation: home-name-enter 0.85s ease-out both;
+}
+
+.home-roles {
+  margin: 0 0 12px;
+  font-family: var(--font-display, Syne, sans-serif);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  color: var(--color-gold, #e0b50f);
+  min-height: 2rem;
+}
+
+.home-tagline {
+  max-width: 480px;
+  margin: 0 0 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.home-buttons {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.home-buttons .btn-hire {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-accent, #138781);
+  color: white;
+  min-width: 160px;
+  border: 2px solid transparent;
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+.home-buttons .btn-hire::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+.home-buttons .btn-hire:hover {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+
+.home-buttons .btn-hire:hover::after {
+  animation: hire-shimmer 0.7s ease;
+}
+
+.home-buttons .btn-cv {
+  background-color: var(--color-coral, #f29f67);
+  color: white;
+  border: 2px solid transparent;
+  transition: opacity 0.35s ease;
+}
+
+.home-buttons .btn-cv:hover {
+  opacity: 0.85;
+}
+
+.theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  background-color: #1e1e1e;
+  color: white;
+  border: none;
+  margin-top: 20px;
+  position: fixed;
+  right: 0;
+  cursor: pointer;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  z-index: 10;
+}
+
+.theme-btn:focus-visible {
+  outline: 2px solid var(--color-gold, #e0b50f);
+  outline-offset: 2px;
+}
+
+@keyframes home-gradient-drift {
+  0% {
+    background-position: 0% 40%;
   }
-  
-  .home-content h2 {
-    padding: 5px;
-    padding-top: 70px;
-    /* margin-left: 150px; */
+  100% {
+    background-position: 100% 60%;
   }
-  .home-content h1 {
-    color: #e0b50f;
-    padding: 5px;
-    /* margin-left: 150px; */
+}
+
+@keyframes home-orb-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
   }
-  
-  .home-buttons {
-    /* margin-left: 150px; */
-    margin-top: 20px;
+  50% {
+    transform: translate(18px, -22px) scale(1.08);
   }
-  
-  .home-buttons .btn-hire {
-    background-color: #3b8ff3;
-    color: white;
-    width: 160px;
+}
+
+@keyframes home-name-enter {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
   }
-  .home-buttons .btn-hire:hover {
-    background-color: white;
-    color: #3b8ff3;
-    width: 200px;
-    transition: 1s;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .home-buttons .btn-cv {
-    background-color: #f29f67;
-    color: white;
-    margin-left: 15px;
+}
+
+@keyframes hire-shimmer {
+  from {
+    left: -120%;
   }
-  
-  .home-buttons .btn-cv:hover {
-    opacity: 80%;
-    transition: 1s;
+  to {
+    left: 140%;
   }
-  
-  .theme-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 50px;
-    background-color: #1e1e1e;
-    margin-top: 20px;
-    text-align: center;
-    position: fixed;
-    right: 0;
-    cursor: pointer;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-container,
+  .home-orb,
+  .home-name,
+  .home-buttons .btn-hire:hover::after {
+    animation: none;
   }
-  
-  /* =============== */
-  @media (max-width: 600px) {
-    .home-container {
-      padding: 0;
-      margin: 0;
-      margin-top: 50px;
-    }
-    .home-container h2 {
-      font-size: 24px;
-    }
-    .home-container h1 {
-      font-size: 24px;
-    }
+
+  .home-name {
+    opacity: 1;
+    transform: none;
   }
+}
+
+@media (max-width: 600px) {
+  .home-container {
+    padding: 0 16px;
+    margin: 0;
+    margin-top: 50px;
+    min-height: 380px;
+  }
+
+  .home-content {
+    padding-top: 32px;
+  }
+
+  .home-name {
+    font-size: 2.2rem;
+  }
+
+  .home-roles {
+    font-size: 1.2rem;
+  }
+
+  .home-orb--gold {
+    left: 10%;
+  }
+}

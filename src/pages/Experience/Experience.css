@@ -1,83 +1,95 @@
 .experience {
-  /* padding: 100px 0px; */
-  /* margin: 50px 0px; */
-  margin-left: 120px; /* matches your Education sidebar spacing */
-  background-color: rgba(128, 128, 128, 0.101);
+  margin-left: 120px;
+  padding: 40px 20px;
+  background-color: transparent;
 }
 
 .experience h1 {
-  font-weight: bold;
-  color: #138781;
+  font-weight: 700;
+  color: var(--color-accent);
   text-align: center;
   margin-bottom: 40px;
 }
 
 .experience-card {
-  background-color: #fff;
-  padding: 25px;
+  background-color: var(--color-surface);
+  padding: 28px;
   margin-bottom: 30px;
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
 }
 
 .experience-card h2 {
-  color: #138781;
-  margin-bottom: 5px;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+  font-size: 1.35rem;
 }
 
-.experience-card h4 {
-  color: #1e1e2c;
-  margin-bottom: 15px;
-  font-weight: 500;
+.experience-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 4px;
+  align-items: baseline;
+}
+
+.experience-company {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.experience-duration {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.experience-location {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
 }
 
 .responsibilities {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   padding-left: 20px;
 }
 
 .responsibilities li {
   margin-bottom: 8px;
-  font-size: 14px;
-  color: #333;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.5;
 }
 
-.project-card {
-  background-color: rgba(19, 135, 129, 0.1);
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 15px;
+.experience-projects-title {
+  font-size: 1.05rem;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+  font-weight: 600;
 }
 
-.project-card h4 {
-  color: #138781;
-  margin-bottom: 10px;
+.experience-project {
+  padding: 12px 0 16px;
+  border-top: 1px solid var(--color-border);
 }
 
-.project-card ul {
+.experience-project h4 {
+  color: var(--color-text);
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.experience-project ul {
   padding-left: 20px;
 }
 
-.project-card li {
-  font-size: 14px;
+.experience-project li {
+  font-size: 0.9rem;
   margin-bottom: 5px;
+  color: var(--color-muted);
+  line-height: 1.45;
 }
 
-/* ===== DARK MODE ===== */
-#dark .experience {
-  background-color: rgba(255, 255, 255, 0.095);
-}
-
-#dark .experience-card {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-#dark .project-card {
-  background-color: rgba(19, 135, 129, 0.05);
-  color: #fff;
-}
-
-/* ===== Responsive ===== */
 @media (max-width: 768px) {
   .experience {
     margin-left: 0;
@@ -85,16 +97,12 @@
   }
 
   .experience-card {
-    padding: 15px;
-  }
-
-  .project-card {
-    padding: 10px;
+    padding: 18px;
   }
 }
 
 @media (max-width: 576px) {
   .experience {
-    padding: 30px 10px;
+    padding: 30px 12px;
   }
 }

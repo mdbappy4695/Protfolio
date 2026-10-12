@@ -1,0 +1,33 @@
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.fade-in--up {
+  transform: translateY(24px);
+}
+
+.fade-in--left {
+  transform: translateX(-28px);
+}
+
+.fade-in--right {
+  transform: translateX(28px);
+}
+
+.fade-in--scale {
+  transform: scale(0.94);
+}
+
+.fade-in--visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

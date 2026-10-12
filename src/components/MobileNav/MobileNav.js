@@ -12,141 +12,71 @@ import {
   FcReadingEbook,
   FcVideoProjector,
 } from "react-icons/fc";
+import { profile } from "../../data/profile";
+
+const navLinks = [
+  { to: "home", label: "Home", Icon: FcHome },
+  { to: "about", label: "About", Icon: FcAbout },
+  { to: "experience", label: "Work Experience", Icon: FcPortraitMode },
+  { to: "education", label: "Education", Icon: FcReadingEbook },
+  { to: "techstack", label: "Tech Stack", Icon: FcBiotech },
+  { to: "projects", label: "Projects", Icon: FcVideoProjector },
+  { to: "contact", label: "Contact", Icon: FcBusinessContact },
+];
+
 const MobileNav = () => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
-    setOpen(!open);
+    setOpen((prev) => !prev);
   };
 
-  //handle menu clicks
   const handleMenuClick = () => {
     setOpen(false);
   };
+
   return (
-    <>
-      <div className="mobile-nav">
-        <div className="mobile-nav-header">
+    <div className="mobile-nav">
+      <div className="mobile-nav-header">
+        <button
+          type="button"
+          className="mobile-nav-toggle"
+          onClick={handleOpen}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+        >
           {open ? (
-            <AiOutlineMenuFold
-              size={30}
-              className="mobile-nav-icon"
-              onClick={handleOpen}
-            />
+            <AiOutlineMenuFold size={30} className="mobile-nav-icon" aria-hidden="true" />
           ) : (
-            <GiHamburgerMenu
-              size={30}
-              className="mobile-nav-icon"
-              onClick={handleOpen}
-            />
+            <GiHamburgerMenu size={30} className="mobile-nav-icon" aria-hidden="true" />
           )}
-
-          <span className="mobile-nav-title">My Protfolio App</span>
-        </div>
-        {open && (
-          <div className="mobile-nav-menu">
-            <div className="nav-items">
-              <div className="nav-item">
-                <div className="nav-link">
+        </button>
+        <span className="mobile-nav-title">{profile.name}</span>
+      </div>
+      {open && (
+        <div className="mobile-nav-menu">
+          <div className="nav-items">
+            <div className="nav-item">
+              {navLinks.map(({ to, label, Icon }) => (
+                <div className="nav-link" key={to}>
                   <Link
-                    to="home"
+                    to={to}
                     spy={true}
                     smooth={true}
                     offset={-100}
                     duration={100}
                     onClick={handleMenuClick}
                   >
-                    <FcHome />
-                    Home
+                    <Icon aria-hidden="true" />
+                    {label}
                   </Link>
                 </div>
-                <div className="nav-link">
-                  <Link
-                    to="about"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={100}
-                    onClick={handleMenuClick}
-                  >
-                    <FcAbout />
-                    About
-                  </Link>
-                </div>
-                 <div className="nav-link">
-                  <Link
-                    to="Experience"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={100}
-                    onClick={handleMenuClick}
-                  >
-                    <FcPortraitMode />
-                    Work Experince
-                  </Link>
-                </div>
-                <div className="nav-link">
-                  <Link
-                    to="education"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={100}
-                    onClick={handleMenuClick}
-                  >
-                    <FcReadingEbook />
-                    Education
-                  </Link>
-                </div>
-
-                <div className="nav-link">
-                  <Link
-                    to="techstack"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={100}
-                    onClick={handleMenuClick}
-                  >
-                    <FcBiotech />
-                    Tech Stack
-                  </Link>
-                </div>
-
-                <div className="nav-link">
-                  <Link
-                    to="projects"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={100}
-                    onClick={handleMenuClick}
-                  >
-                    <FcVideoProjector />
-                    Projects
-                  </Link>
-                </div>
-               
-                <div className="nav-link">
-                  <Link
-                    to="contact"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={100}
-                    onClick={handleMenuClick}
-                  >
-                    <FcBusinessContact />
-                    Contact
-                  </Link>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
-        )}
-      </div>
-    </>
+        </div>
+      )}
+    </div>
   );
 };
 

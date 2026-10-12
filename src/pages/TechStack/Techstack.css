@@ -2,19 +2,36 @@
   padding-left: 130px;
   margin-top: 30px;
 }
+
 .techstack hr {
-  color: #138781;
+  border: 0;
+  height: 0;
   width: 400px;
   margin: 10px auto;
+  opacity: 1;
+  border-top: 3px solid var(--color-accent);
+  background: none;
+  color: transparent;
 }
 
 .techstack h2 {
-  font-weight: bold;
-  color: #138781;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+#dark .techstack h2 {
+  color: var(--color-accent);
+}
+
+.techstack-intro {
+  color: var(--color-muted);
 }
 
 .techstack .card {
-  cursor: pointer;
+  cursor: default;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  transition: background-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
 }
 
 .techstack .tech-icon {
@@ -22,22 +39,21 @@
   margin-right: 10px;
 }
 
-.techstack .card:hover {
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  background-color: #138781;
-  color: white;
-
-  transition: 1s;
+.techstack .card h5 {
+  margin: 0;
+  color: inherit;
 }
 
-/* =============================== */
+.techstack .card:hover {
+  background-color: var(--color-accent);
+  color: white;
+  box-shadow: 0 10px 24px rgba(19, 135, 129, 0.25);
+}
+
 @media (max-width: 600px) {
   .techstack {
-    padding: 0;
-    margin: 0;
-    margin-top: 50px;
+    padding: 0 12px;
+    margin: 50px 0 0;
   }
 
   .techstack hr {

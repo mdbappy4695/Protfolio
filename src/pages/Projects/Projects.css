@@ -1,99 +1,169 @@
 .project {
-  margin: 50px 0px;
+  margin: 50px 0;
   margin-left: 140px;
 }
 
 .project hr {
-  color: #138781;
+  border: 0;
+  height: 0;
   width: 400px;
   margin: 10px auto;
+  opacity: 1;
+  border-top: 3px solid var(--color-accent);
+  background: none;
+  color: transparent;
 }
 
 .project h2 {
-  font-weight: bold;
-  color: #138781;
+  font-family: var(--font-display, Syne, sans-serif);
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.projects-intro {
+  color: var(--color-muted);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #ads {
-  margin: 30px 0px 30px 0px;
+  margin: 30px 0;
+}
+
+#ads .card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  margin-bottom: 28px;
+  height: 100%;
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
 }
 
 #ads .card-notify-badge {
   position: absolute;
   left: -10px;
   top: -20px;
-  background: #f29f67;
+  background: var(--color-coral);
   text-align: center;
-  border-radius: 30px 30px 30px 30px;
-  color: black;
+  border-radius: 30px;
+  color: #1a1a1a;
   padding: 5px 10px;
   font-size: 14px;
+}
+
+.project .card-image {
+  position: relative;
+  overflow: hidden;
 }
 
 .project .card img {
   height: 150px;
   width: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.project .card:hover img {
+  transform: scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project .card:hover img {
+    transform: none;
+  }
 }
 
 .card-detail-badge {
-  background-color: #e0b50f;
+  background-color: var(--color-gold);
   text-align: center;
-  border-radius: 30px 30px 30px 30px;
-  color: black;
+  border-radius: 30px;
+  color: #1a1a1a;
   padding: 5px 10px;
   font-size: 14px;
 }
+
 .card-image-overly {
   font-size: 20px;
 }
+
 .card-image-overly span {
   display: inline-block;
   margin-left: 5px;
+  margin-bottom: 4px;
 }
 
 .project .card:hover {
-  background-color: white;
-  border-radius: 4px;
-  box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.15);
-  transition: all 1s ease;
+  box-shadow: 0 12px 28px rgba(30, 30, 44, 0.12);
+  transform: translateY(-4px);
+}
+
+.ad-title h6 {
+  color: var(--color-text);
+  margin-top: 8px;
+}
+
+.project-summary {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  margin: 10px 12px 0;
+  text-align: left;
+  min-height: 4.2em;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 16px 12px 20px;
 }
 
 .ad-btn {
   text-transform: uppercase;
-  width: 150px;
+  min-width: 120px;
   height: 40px;
-  display: block;
+  display: inline-block;
   text-align: center;
-  background-color: #138781;
+  background-color: var(--color-accent);
   color: white;
   border-radius: 80px;
-  font-size: 16px;
-  line-height: 35px;
+  font-size: 14px;
+  line-height: 36px;
   text-decoration: none;
-  margin: 20px auto 20px auto;
-  overflow: hidden;
-  position: relative;
+  margin: 0;
+  padding: 0 18px;
+  border: 2px solid var(--color-accent);
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 .ad-btn:hover {
-  background-color: white;
-  color: #138781;
-  background: transparent;
-  border: 2px solid #138781;
-  transition: all 0.5s ease;
-  box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.15);
+  background-color: transparent;
+  color: var(--color-accent);
 }
 
-/* =============================== */
+.ad-btn-github {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.ad-btn-github:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background-color: transparent;
+}
+
 @media (max-width: 600px) {
   .project {
-    margin: 0;
-    padding: 0;
-    margin-top: 50px;
+    margin: 50px 0 0;
+    padding: 0 12px;
   }
+
   .project hr {
     width: 280px;
   }
+
   .project .card {
     margin-top: 30px;
   }
