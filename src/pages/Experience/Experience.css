@@ -1,0 +1,100 @@
+.experience {
+  /* padding: 100px 0px; */
+  /* margin: 50px 0px; */
+  margin-left: 120px; /* matches your Education sidebar spacing */
+  background-color: rgba(128, 128, 128, 0.101);
+}
+
+.experience h1 {
+  font-weight: bold;
+  color: #138781;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.experience-card {
+  background-color: #fff;
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.experience-card h2 {
+  color: #138781;
+  margin-bottom: 5px;
+}
+
+.experience-card h4 {
+  color: #1e1e2c;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.responsibilities {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.responsibilities li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.project-card {
+  background-color: rgba(19, 135, 129, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.project-card h4 {
+  color: #138781;
+  margin-bottom: 10px;
+}
+
+.project-card ul {
+  padding-left: 20px;
+}
+
+.project-card li {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* ===== DARK MODE ===== */
+#dark .experience {
+  background-color: rgba(255, 255, 255, 0.095);
+}
+
+#dark .experience-card {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#dark .project-card {
+  background-color: rgba(19, 135, 129, 0.05);
+  color: #fff;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .experience {
+    margin-left: 0;
+    padding: 50px 20px;
+  }
+
+  .experience-card {
+    padding: 15px;
+  }
+
+  .project-card {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .experience {
+    padding: 30px 10px;
+  }
+}
